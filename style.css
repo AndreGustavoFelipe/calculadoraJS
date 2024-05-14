@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@500&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Encode Sans Expanded', sans-serif;
+
+}
+
+body, html{
+
+    height: 100vh;
+
+}
+
+body{
+
+    background-image: url(./imgs/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: hidden;
+
+}
+
+.base-calculadora{
+
+    width: 35vw;
+    height: 65vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: auto;
+    margin-top: 17vh;
+
+    border-radius: 20px;
+
+}
+
+.visor{
+
+    width: 34vw;
+    height: 8vh;
+
+    margin-top: 3vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+
+    font-size: 4vh;
+
+}
+
+#input-visor{
+
+    width: 34vw;
+    height: 8vh;
+
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+
+    border: 2px solid rgb(105, 0, 0);
+    border-radius: 20px;
+
+    box-shadow: 1px 1px 7px rgb(105, 0, 0);
+    
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+
+    text-align: center;
+
+    padding-right: 3%;
+
+}
+
+#input-visor:focus{
+
+    outline: none;
+
+}
+
+.botoes{
+
+    height: 45vh;
+    width: 36vw;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btn{
+
+    width: 7vw;
+    height: 8vh;
+
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1%;
+
+    font-size: 2vh;
+    
+    color: white;
+
+    background-image: linear-gradient(to right, #3A0000, rgb(105, 0, 0));
+
+    box-shadow: 1px 1px 7px black;
+
+    border: none;
+    border-radius: 40px;
+
+}
+
+.btn:hover{
+
+    box-shadow: 1px 1px 7px white;
+
+    background-image: linear-gradient(to left, #3A0000, rgb(105, 0, 0));
+    
+    cursor: pointer;
+
+    transition: 200ms;
+
+}
+
+#btn-igual{
+
+   width: 11vw;
+
+}
+
+#btn-0{
+
+    width: 11vw;
+
+}
