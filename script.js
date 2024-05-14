@@ -20,9 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnPonto = document.getElementById('btn-ponto');
     const btnIgual = document.getElementById('btn-igual');
 
-    const inputVisor = document.getElementById('input-visor');
+    var array = []
+
+    var inputVisor = document.getElementById('input-visor');
     
-    var equacao = ''
+    var equacao = ""
 
 
     // -- FUNCAO DE ATUALIZAR O VISOR --
@@ -37,67 +39,67 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btn0.addEventListener('click', function(){
        
-        equacao += 0
+        equacao += "0"
         atualizarVisor()
 
     })
 
     btn1.addEventListener('click', function(){
 
-        equacao += 1
+        equacao += "1"
         atualizarVisor()
 
     })
 
     btn2.addEventListener('click', function(){
 
-        equacao += 2
+        equacao += "2"
         atualizarVisor()
 
     })
 
     btn3.addEventListener('click', function(){
 
-        equacao += 3
+        equacao += "3"
         atualizarVisor()
 
     })
 
     btn4.addEventListener('click', function(){
 
-        equacao += 4
+        equacao += "4"
         atualizarVisor()
     })
 
     btn5.addEventListener('click', function(){
 
-        equacao += 5
+        equacao += "5"
         atualizarVisor()
     })
 
     btn6.addEventListener('click', function(){
 
-        equacao += 6
+        equacao += "6"
         atualizarVisor()
     })
 
     btn7.addEventListener('click', function(){
 
-        equacao += 7
+        equacao += "7"
         atualizarVisor()
 
     })
 
     btn8.addEventListener('click', function(){
 
-        equacao += 8
+        equacao += "8"
         atualizarVisor()
 
     })
 
     btn9.addEventListener('click', function(){
 
-        equacao += 9
+        equacao += "9"
         atualizarVisor()
 
     })
@@ -133,8 +135,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnMais.addEventListener('click', function(){
 
-        equacao += ' + '
-        atualizarVisor()
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
+        }
+
+        else if(equacao.slice(-1) === " "){
+
+            alert("O operador aritimetico ja foi informado! Agora adicione um número")
+
+        }
+
+        else{
+
+            equacao += ' + '
+            atualizarVisor()
+
+        }
 
     })
 
@@ -177,12 +195,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // -- BOTAO RESPONSÁVEL POR REALIZAR AS CONTAS -- 
 
-    btnIgual.addEventListener('click', function(){
+    btnIgual.addEventListener('click', function() {
+    
+        array = equacao.split(' ');
+        let resultado = parseFloat(array[0]); 
 
-        const array = equacao.split('');
-        
-        
-
-    })
+        for (let i = 1; i < array.length; i += 2) {
+            const operador = array[i];
+            const numero = parseFloat(array[i + 1]);
+    
+            switch (operador) {
+                case '+':
+                    resultado += numero;
+                    break;
+                case '-':
+                    resultado -= numero;
+                    break;
+                case '*':
+                    resultado *= numero;
+                    break;
+                case '/':
+                    resultado /= numero;
+                    break;
+                default:
+                    console.log("Operador inválido!");
+            }
+        }
+    
+        console.log(resultado);
+    
+        equacao = resultado.toString();
+        atualizarVisor();
+    });
+    
 
 });
