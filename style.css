@@ -149,3 +149,82 @@ body{
     width: 11vw;
 
 }
+
+.nav{
+
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 7vh;
+
+}
+
+.btn-historico{
+
+    color: white;
+    background-color: transparent;
+
+    border: none;
+
+    font-size: 2vh;
+
+    margin-right: 2vw;
+
+}
+
+.btn-historico:hover{
+
+    cursor: pointer;
+
+    color: rgb(105, 0, 0);
+
+    transition: 500ms;
+
+}
+
+.tela-suspensa {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* fundo escuro semitransparente */
+    z-index: 999; /* certifique-se de que está sobreposto a outros elementos */
+  }
+  
+  .conteudo-tela {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 5px;
+
+    color: white;
+
+    box-shadow: 0px 0px 7px rgb(105, 0, 0);
+    border-radius: 40px;
+
+    width: 40%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.conteudo{
+
+    width: 90%;
+    height: 30%;
+
+    display: flex;
+
+}

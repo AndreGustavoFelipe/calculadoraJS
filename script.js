@@ -1,28 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const btnC = document.getElementById('btn-C');
-    const btnCE = document.getElementById('btn-CE');
-    const btnDivisao = document.getElementById('btn-/');
+    const btnC = document.getElementById('btn-C')
+    const btnCE = document.getElementById('btn-CE')
+    const btnDivisao = document.getElementById('btn-/')
     const btnMultiplicacao = document.getElementById('btn-*');
-    const btn7 = document.getElementById('btn-7');
-    const btn8 = document.getElementById('btn-8');
-    const btn9 = document.getElementById('btn-9');
-    const btnMenos = document.getElementById('btn-menos');
-    const btn4 = document.getElementById('btn-4');
-    const btn5 = document.getElementById('btn-5');
-    const btn6 = document.getElementById('btn-6');
-    const btnMais = document.getElementById('btn-mais');
-    const btn1 = document.getElementById('btn-1');
-    const btn2 = document.getElementById('btn-2');
-    const btn3 = document.getElementById('btn-3');
+    const btn7 = document.getElementById('btn-7')
+    const btn8 = document.getElementById('btn-8')
+    const btn9 = document.getElementById('btn-9')
+    const btnMenos = document.getElementById('btn-menos')
+    const btn4 = document.getElementById('btn-4')
+    const btn5 = document.getElementById('btn-5')
+    const btn6 = document.getElementById('btn-6')
+    const btnMais = document.getElementById('btn-mais')
+    const btn1 = document.getElementById('btn-1')
+    const btn2 = document.getElementById('btn-2')
+    const btn3 = document.getElementById('btn-3')
     const btnPorcentagem = document.getElementById('btn-porcentagem');
-    const btn0 = document.getElementById('btn-0');
-    const btnPonto = document.getElementById('btn-ponto');
-    const btnIgual = document.getElementById('btn-igual');
+    const btn0 = document.getElementById('btn-0')
+    const btnPonto = document.getElementById('btn-ponto')
+    const btnIgual = document.getElementById('btn-igual')
+
+    const btnHistorico = document.getElementsByClassName('btn-historico')
 
     var array = []
+    var historico = []
 
-    var inputVisor = document.getElementById('input-visor');
+    var inputVisor = document.getElementById('input-visor')
     
     var equacao = ""
 
@@ -158,29 +161,93 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnMenos.addEventListener('click', function(){
 
-        equacao += ' - '
-        atualizarVisor()
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
+        }
+
+        else if(equacao.slice(-1) === " "){
+
+            alert("O operador aritimetico ja foi informado! Agora adicione um número")
+
+        }
+
+        else{
+
+            equacao += ' - '
+            atualizarVisor()
+
+        }
 
     })
 
     btnMultiplicacao.addEventListener('click', function(){
 
-        equacao += ' * '
-        atualizarVisor()
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
+        }
+
+        else if(equacao.slice(-1) === " "){
+
+            alert("O operador aritimetico ja foi informado! Agora adicione um número")
+
+        }
+
+        else{
+
+            equacao += ' * '
+            atualizarVisor()
+
+        }
 
     })
 
     btnDivisao.addEventListener('click', function(){
 
-        equacao += ' / '
-        atualizarVisor()
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
+        }
+
+        else if(equacao.slice(-1) === " "){
+
+            alert("O operador aritimetico ja foi informado! Agora adicione um número")
+
+        }
+
+        else{
+
+            equacao += ' / '
+            atualizarVisor()
+
+        }
 
     })
 
     btnPorcentagem.addEventListener('click', function(){
 
-        equacao += '% '
-        atualizarVisor()
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
+        }
+
+        else if(equacao.slice(-1) === " "){
+
+            alert("O operador aritimetico ja foi informado! Agora adicione um número")
+
+        }
+
+        else{
+
+            equacao += ' % '
+            atualizarVisor()
+
+        }
 
     })
 
@@ -195,38 +262,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // -- BOTAO RESPONSÁVEL POR REALIZAR AS CONTAS -- 
 
-    btnIgual.addEventListener('click', function() {
-    
-        array = equacao.split(' ');
-        let resultado = parseFloat(array[0]); 
+    btnIgual.addEventListener('click', function() {        
 
-        for (let i = 1; i < array.length; i += 2) {
-            const operador = array[i];
-            const numero = parseFloat(array[i + 1]);
-    
-            switch (operador) {
-                case '+':
-                    resultado += numero;
-                    break;
-                case '-':
-                    resultado -= numero;
-                    break;
-                case '*':
-                    resultado *= numero;
-                    break;
-                case '/':
-                    resultado /= numero;
-                    break;
-                default:
-                    console.log("Operador inválido!");
-            }
+        if(equacao.length == 0){
+
+            alert("Informe algum número!")
+
         }
+
+        else{
+
+            array = equacao.split(' ');
+            let resultado = parseFloat(array[0]); 
     
-        console.log(resultado);
+            historico.push(equacao);
     
-        equacao = resultado.toString();
-        atualizarVisor();
+            for (let i = 1; i < array.length; i += 2) {
+                const operador = array[i];
+                const numero = parseFloat(array[i + 1]);
+        
+                switch (operador) {
+                    case '+':
+                        resultado += numero;
+                        break;
+                    case '-':
+                        resultado -= numero;
+                        break;
+                    case '*':
+                        resultado *= numero;
+                        break;
+                    case '/':
+                        resultado /= numero;
+                        break;
+                    default:
+                        console.log("Operador inválido!");
+                }
+            }
+        
+            console.log(historico)
+        
+            equacao = resultado.toString();
+            atualizarVisor();
+
+        }
+
+        
     });
     
+    /* BOTAO DE HISTORICO */
+
+    btnHistorico.addEventListener('click', function(){
+
+
+
+    })
 
 });
