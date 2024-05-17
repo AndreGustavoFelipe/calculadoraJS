@@ -20,7 +20,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnPonto = document.getElementById('btn-ponto')
     const btnIgual = document.getElementById('btn-igual')
 
-    const btnHistorico = document.getElementsByClassName('btn-historico')
+    const btnHistorico = document.querySelector('#btnHistorico')
+    const telaSuspensa = document.querySelector('.tela-suspensa')
+    const conteudoTela = document.querySelector('.conteudo-tela')
+    const botaoFechar = document.querySelector('#botao-fechar')
+
+    const listaHistorico = document.querySelector('.lista-historico')
 
     var array = []
     var historico = []
@@ -313,8 +318,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnHistorico.addEventListener('click', function(){
 
+        telaSuspensa.style.display = 'block' /*Sem nenhuma validação pois a tela suspensa não permite que o botão seja clicado mais de uma vez*/
 
+        for(let i = 0; i<historico.length; i++){
 
-    })
+            const novoItem = document.createElement('li');
+            
+            novoItem.textContent = historico[i];
+
+            listaHistorico.appendChild(novoItem);
+
+        }
+
+    });
+
+    /* BOTAO FECHAR HISTORICO */
+
+    botaoFechar.addEventListener('click', function(){
+
+        telaSuspensa.style.display = 'none'
+
+    });
 
 });
